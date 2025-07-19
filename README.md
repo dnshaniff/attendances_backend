@@ -53,4 +53,4 @@ Tugas backend untuk sistem absensi berdasarkan spesifikasi dan flowchart yang di
 - cp .env.example .env
 - php artisan key:generate
 - php artisan migrate
-- php artisan serve
+- php artisan serve --port=3000
