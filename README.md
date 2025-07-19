@@ -47,7 +47,7 @@ Tugas backend untuk sistem absensi berdasarkan spesifikasi dan flowchart yang di
 
 ## 📦 Instalasi
 
-- git clone [https://github.com/username/backend-attendance.git](https://github.com/dnshaniff/attendances_backend.git)
+- git clone https://github.com/dnshaniff/attendances_backend.git
 - cd attendances_backend
 - composer install
 - cp .env.example .env
