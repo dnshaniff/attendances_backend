@@ -18,6 +18,8 @@ class AttendanceController extends Controller
         try {
             $search = $request->input('search');
             $perPage = $request->input('per_page', 10);
+            $departmentId = $request->input('department_id');
+            $date = $request->input('date');
 
             $query = Attendance::with(['employee.department', 'attendanceHistory']);
 
@@ -28,6 +30,16 @@ class AttendanceController extends Controller
                             $q->where('department_name', 'LIKE', "%{$search}%");
                         });
                 });
+            }
+
+            if ($departmentId) {
+                $query->whereHas('employee', function ($q) use ($departmentId) {
+                    $q->where('department_id', $departmentId);
+                });
+            }
+
+            if ($date) {
+                $query->whereDate('clock_in', $date);
             }
 
             $attendances = $query->latest()->paginate($perPage);

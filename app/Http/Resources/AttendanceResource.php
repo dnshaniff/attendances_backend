@@ -27,8 +27,8 @@ class AttendanceResource extends JsonResource
                     ],
                 ];
             }),
-            'clock_in' => $this->clock_in,
-            'clock_out' => $this->clock_out,
+            'clock_in' => $this->clock_in->format('d F Y, H:i:s'),
+            'clock_out' => $this->clock_out ? $this->clock_out->format('d F Y, H:i:s') : null,
             'status' => $this->calculateStatus(),
             'created_at' => $this->created_at->format('d F Y, H:i:s'),
             'updated_at' => $this->updated_at->format('d F Y, H:i:s'),
